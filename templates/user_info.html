@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о пользователе</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Информация о пользователе</h1>
+    <ul>
+        <li><strong>ID:</strong> {{ user["user_id"] }}</li>
+        <li><strong>Username:</strong> @{{ user["username"] or "—" }}</li>
+        <li><strong>Имя:</strong> {{ user["first_name"] or "—" }}</li>
+        <li><strong>Фамилия:</strong> {{ user["last_name"] or "—" }}</li>
+        <li><strong>Язык Telegram:</strong> {{ user["language_code"] or "—" }}</li>
+    </ul>
+    <a href="{{ url_for('show_subscribers') }}" class="button button-secondary">Назад</a>
+</div>
+</body>
+</html>

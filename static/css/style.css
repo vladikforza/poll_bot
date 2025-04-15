@@ -1,0 +1,146 @@
+/* Подключаем шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Pacifico&display=swap');
+
+/* Общий стиль страницы */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #fbc2eb, #a6c1ee);
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер для центрирования контента */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки */
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+/* Кнопки */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Оформление списка опросов */
+.poll-item {
+    display: flex;
+    flex-direction: column;  /* Выравниваем контент вертикально */
+    align-items: center;     /* Центрируем кнопки */
+    justify-content: center;
+    background: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;       /* Выравниваем текст */
+}
+
+/* Контейнер для кнопок */
+.poll-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;  /* Расстояние между кнопками */
+    margin-top: 10px;
+}
+
+/* Уменьшаем ширину кнопок, чтобы они не разъезжались */
+.poll-buttons a {
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+}
+
+.button-primary {
+    background: #007bff;
+    color: white;
+    border: none;
+}
+
+.button-primary:hover {
+    background: #0056b3;
+}
+
+.button-secondary {
+    background: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.button-secondary:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* Поля ввода */
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Список опросов */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ссылки */
+a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Рукописный текст */
+.signature {
+    font-family: 'Pacifico', cursive;
+    font-size: 18px;
+    color: #666;
+    margin-top: 20px;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подписчики</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Список подписчиков</h1>
+
+    {% if subscribers %}
+        <ul>
+            {% for user in subscribers %}
+                <li>
+                    Пользователь ID: {{ user.user_id }}
+                        <div class="poll-buttons">
+                            <a href="{{ url_for('user_info', user_id=user.user_id) }}" class="button button-secondary">О пользователе</a>
+                            <a href="{{ url_for('subscriber_detail', user_id=user.user_id) }}" class="button button-primary">Открыть</a>
+                        </div>
+                </li>
+            {% endfor %}
+
+        </ul>
+    {% else %}
+        <p>Нет подписчиков.</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="button button-secondary">Назад</a>
+</div>
+</body>
+</html>

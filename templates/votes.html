@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление голосованиями</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Управление голосованиями</h1>
+        <a href="{{ url_for('create_vote_page') }}" class="button button-primary">Создать голосование</a>
+        <form method="GET" action="{{ url_for('votes_index') }}" style="margin-bottom: 20px;">
+            <input type="text" name="q" placeholder="Поиск по голосованиям..." value="{{ request.args.get('q', '') }}">
+            <button type="submit">Найти</button>
+        </form>
+        {% for vote in votes %}
+        <div class="poll-item">
+            <p>{{ vote["question"] }}</p>
+            <div class="poll-buttons">
+                <a href="{{ url_for('view_vote', vote_id=vote['id']) }}" class="button">Просмотр</a>
+                <a href="{{ url_for('delete_vote_page', vote_id=vote['id']) }}" class="button">Удалить</a>
+                <a href="{{ url_for('vote_stats', vote_id=vote['id']) }}" class="button">Статистика</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

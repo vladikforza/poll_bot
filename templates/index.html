@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросы</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Управление опросами</h1>
+
+        <div style="display: flex; justify-content: center; gap: 20px; position: relative;">
+            <a href="{{ url_for('create') }}" class="button button-primary">Создать новый опрос</a>
+            <a href="{{ url_for('show_subscribers') }}" class="button button-secondary" style="position: absolute; right: 0;">Подписчики</a>
+        </div>
+
+
+        <form method="GET" action="{{ url_for('index') }}" style="margin-bottom: 20px;">
+            <input type="text" name="q" placeholder="🔍 Поиск по вопросам..." value="{{ request.args.get('q', '') }}">
+            <button type="submit" class="button button-primary">Найти</button>
+        </form>
+
+
+        <h2>Список опросов</h2>
+        <div class="poll-list">
+            {% for poll in polls %}
+                <div class="poll-item">
+                    <p>{{ poll["question"] }}</p>
+                    <div class="poll-buttons">
+                        <a href="{{ url_for('view_poll', poll_id=poll[0]) }}" class="button button-secondary">Отобразить</a>
+                        <a href="{{ url_for('delete', poll_id=poll['id']) }}" class="button button-secondary">Удалить</a>
+                        <a href="{{ url_for('stats', poll_id=poll['id']) }}" class="button button-primary">Статистика</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</body>
+</html>

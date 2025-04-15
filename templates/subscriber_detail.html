@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о подписчике</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Подписчик ID: {{ user_id }}</h1>
+
+    <h2>Участие в опросах</h2>
+    {% if poll_votes %}
+        <ul>
+            {% for row in poll_votes %}
+                <li><strong>{{ row["question"] }}</strong> — выбрал: {{ row["choice"] }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет участия в опросах.</p>
+    {% endif %}
+
+    <h2>Участие в голосованиях</h2>
+    {% if vote_results %}
+        <ul>
+            {% for row in vote_results %}
+                <li><strong>{{ row["question"] }}</strong> — выбрал: {{ row["choice"] }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет участия в голосованиях.</p>
+    {% endif %}
+
+    <a href="{{ url_for('show_subscribers') }}" class="button button-secondary">Назад</a>
+</div>
+</body>
+</html>
